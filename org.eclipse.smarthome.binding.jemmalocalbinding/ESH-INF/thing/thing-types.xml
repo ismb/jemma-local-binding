@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="jemmalocalbinding"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+        xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    
+    <thing-type id="fake_color_control">
+        <label>FakeColorControlFunction Binding Thing</label>
+        <description>An appliance which allows to control its color parameters</description>
+        <channels>
+            <channel id="set_hsb_channel" typeId="set_hsb_type"/>
+        </channels>
+    </thing-type>
+    
+    <thing-type id="fake_door_lock">
+        <label>FakeDoorLockFunction Binding Thing</label>
+        <description>An appliance which allows to be OPEN/CLOSED </description>
+        <channels>
+            <channel id="open_closed_channel" typeId="set_open_closed_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_fridge">
+        <label>FakeFridgeFunction Binding Thing</label>
+        <description>An appliance which behaves as fridge</description>
+        <channels>
+            <channel id="set_cycle_channel" typeId="set_cycle_type"/>
+            <channel id="get_fridge_temperature_channel" typeId="get_temperature_type"/>
+            <channel id="get_freezer_temperature_channel" typeId="get_temperature_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_multi_level_control_light">
+        <label>FakeMultiLevelControlFunction Binding Thing</label>
+        <description>Appliance with finer grained brightness control</description>
+        <channels>
+            <channel id="set_multi_level_control_channel" typeId="set_multi_level_control_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_multi_level_sensor_thermostat">
+        <label>FakeMultiLevelSensorThermostatFunction Binding Thing</label>
+        <description>Appliance with finer grained sensing capabilities</description>
+        <channels>
+            <channel id="get_multi_level_sensor_channel" typeId="get_multi_level_sensor_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_on_off">
+        <label>FakeOnOffFunction Binding Thing</label>
+        <description>Appliance which allows to be switched ON/OFF</description>
+        <channels>
+            <channel id="set_on_off_channel" typeId="set_on_off_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_oven">
+        <label>FakeOvenFunction Binding Thing</label>
+        <description>An appliance which behaves as oven</description>
+        <channels>
+            <channel id="set_temperature_channel" typeId="set_temperature_type"/>
+            <channel id="set_cycle_channel" typeId="set_cycle_type"/>
+            <channel id="set_start_time_channel" typeId="set_time_type"/>
+            <channel id="get_remaining_time_channel" typeId="get_time_type"/>
+            <channel id="get_end_time_channel" typeId="get_time_type"/>                      
+        </channels>
+    </thing-type>
+    <thing-type id="fake_power_meter">
+        <label>FakePowerMeterFunction Binding Thing</label>
+        <description>An appliance which provides information about its instant energy consumption</description>
+        <channels>
+            <channel id="get_instant_current_channel" typeId="get_power_type"/>
+            <channel id="get_total_current_channel" typeId="get_power_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_washing_machine">
+        <label>FakeWashingMachineunction Binding Thing</label>
+        <description>An appliance which behaves as washing machine</description>
+        <channels>
+            <channel id="set_temperature_channel" typeId="set_temperature_type"/>
+            <channel id="set_cycle_channel" typeId="set_cycle_type"/>
+            <channel id="set_spin_channel" typeId="set_washing_machine_spin_type"/>
+            <channel id="set_start_time_channel" typeId="set_time_type"/>
+            <channel id="get_remaining_time_channel" typeId="get_time_type"/>
+            <channel id="get_end_time_channel" typeId="get_time_type"/>
+        </channels>
+    </thing-type>
+    <thing-type id="fake_window_covering">
+        <label>FakeOnOffFunction Binding Thing</label>
+        <description>Appliance which allows to be switched ON/OFF</description>
+        <channels>
+            <channel id="set_open_close_channel" typeId="set_on_off_type"/>            
+        </channels>
+    </thing-type>
+
+    <channel-type id="set_hsb_type">
+        <item-type>HSB</item-type>
+        <label>HSB</label>
+        <description>Allows to set HSB values</description>
+    </channel-type>
+    <channel-type id="set_open_closed_type">
+        <item-type>OpenClosed</item-type>
+        <label>OpenClosed</label>
+        <description>Allows to OPEN/CLOSE latch</description>
+    </channel-type>
+    <channel-type id="set_cycle_type">
+        <item-type>String</item-type>
+        <label>Appliance mode</label>
+        <description>Allows to set appliance cycle mode</description>        
+    </channel-type>
+    <channel-type id="get_temperature_type">
+        <item-type>Decimal</item-type>
+        <label>Read only temperature value</label>
+        <description>Provide temperature information</description>
+        <state readOnly="true"/>        
+    </channel-type>
+    <channel-type id="set_multi_level_control_type">
+        <item-type>Dimmer</item-type>
+        <label>Multilevel control</label>
+        <description>Allows to set a fraction of a whole range of values</description>        
+    </channel-type>
+    <channel-type id="get_multi_level_sensor_type">
+        <item-type>Decimal</item-type>
+        <label>Multilevel sensor</label>
+        <description>Allows to get the magnitude of a physical dimension</description>
+        <state readOnly="true"/>        
+    </channel-type>
+    <channel-type id="set_on_off_type">
+        <item-type>Switch</item-type>
+        <label>Switch appliance status</label>
+        <description>Allows to switch between ON/OFF status</description>        
+    </channel-type>
+    <channel-type id="set_time_type">
+        <item-type>DateTime</item-type>
+        <label>Time information</label>
+        <description>Allows to set date</description>        
+    </channel-type>      
+    <channel-type id="get_time_type">
+        <item-type>DateTime</item-type>
+        <label>Time information</label>
+        <description>Read only date information</description>  
+        <state readOnly="true"/>         
+    </channel-type>
+    <channel-type id="get_power_type">
+        <item-type>Decimal</item-type>
+        <label>Power consumed</label>
+        <description>Allows to retrieve appliance power consumption information</description>
+        <state readOnly="true"/>        
+    </channel-type>
+    <channel-type id="set_washing_machine_spin_type">
+        <item-type>Switch</item-type>
+        <label>Set spin mode</label>
+        <description>Allows to ENABLE/DISABLE washing machine spin mode</description>        
+    </channel-type>                
+</thing:thing-descriptions>
